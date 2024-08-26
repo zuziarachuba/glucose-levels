@@ -1,9 +1,21 @@
+import csv
+from datetime import datetime
+today = datetime.today().strftime('%Y-%m-%d')
+file_name = f"glukose_levels_{today}.csv"
+
 fasting = int(input("What was your fasting blood glucose level today? "))
 after_breakfast = int(input("Input your glucose level 2 hours after breakfast: "))
 before_lunch = int(input("Input your glucose level before lunch: "))
 after_lunch = int(input("Input your glucose level 2 hours after lunch: "))
 before_dinner = int(input("Input your glucose level before dinner: "))
 after_dinner = int(input("Input your glucose level 2 hours after dinner: "))
+
+with open(file_name, "w", newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(["Fasting", "After breakfast", "Before lunch", "After lunch", "Before dinner", "After dinner"])
+    writer.writerow([fasting, after_breakfast, before_lunch, after_lunch, before_dinner, after_dinner])
+
+print(f"Your data from today has been saved to {file_name}")
 
 print()
 print("Thank you for your data!")
