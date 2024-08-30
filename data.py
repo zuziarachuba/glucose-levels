@@ -15,16 +15,20 @@ with open(file_name, "w", newline='') as file:
     writer.writerow(["Fasting", "After breakfast", "Before lunch", "After lunch", "Before dinner", "After dinner"])
     writer.writerow([fasting, after_breakfast, before_lunch, after_lunch, before_dinner, after_dinner])
 
+print() 
+
 print(f"Your data from today has been saved to {file_name}")
 
 print()
 print("Thank you for your data!")
+
 print("What would you like to know? Here are your options: ")
 print("- Average glucose level - write 'avg'")
 print("- Time in range - write 'tir")
 print("- Posibble A1C level - write 'A1C'")
 
 choice = input()
+
 if choice == "avg":
     avg = (fasting + after_breakfast + before_dinner + before_lunch + after_dinner + after_lunch)/6
     avg_rounded = round(avg, 1)
